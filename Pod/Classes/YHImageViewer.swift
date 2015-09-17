@@ -52,6 +52,7 @@ public class YHImageViewer: NSObject {
         }
 
         let imageView = UIImageView(image: image)
+        imageView.contentMode = targetImageView.contentMode
         self.imageView = imageView
         let startFrame = targetImageView.convertRect(targetImageView.bounds, toView: self.backgroundView)
         self.startFrame = startFrame
