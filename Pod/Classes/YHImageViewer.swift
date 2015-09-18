@@ -72,7 +72,7 @@ public class YHImageViewer: NSObject {
         
         
         // Start animation
-        UIView.animateWithDuration(self.fadeAnimationDuration, delay: 0, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(self.fadeAnimationDuration, delay: 0, options: [], animations: { () -> Void in
             backgroundView.alpha = 1
             }) { (_) -> Void in
                 self.moveImageToCenter()
@@ -86,7 +86,7 @@ public class YHImageViewer: NSObject {
     
     func moveImageToCenter() {
         if let imageView = self.imageView {
-            UIView.animateWithDuration(0.2, delay: 0, options: nil, animations: { () -> Void in
+            UIView.animateWithDuration(0.2, delay: 0, options: [], animations: { () -> Void in
                 let width = self.window.bounds.size.width
                 let height = width / imageView.image!.size.width * imageView.image!.size.height
                 self.imageView.frame.size = CGSizeMake(width, height)
@@ -127,7 +127,7 @@ public class YHImageViewer: NSObject {
                 if straightVelocity > 1000 {
                     let radian = atan2(velocity.y, velocity.x)
                     let goalPoint = CGPointMake(cos(radian) * CGFloat(goalPointRate), sin(radian) * CGFloat(goalPointRate))
-                    UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
+                    UIView.animateWithDuration(0.4, delay: 0, options: [], animations: { () -> Void in
                         targetView.center = goalPoint
                     }, completion: { (_) -> Void in
                         self.close()
@@ -162,7 +162,7 @@ public class YHImageViewer: NSObject {
     }
     
     func close() {
-        UIView.animateWithDuration(self.fadeAnimationDuration, delay: 0, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(self.fadeAnimationDuration, delay: 0, options: [], animations: { () -> Void in
             self.backgroundView.alpha = 0
             }) { (_) -> Void in
                 self.window = nil
@@ -173,7 +173,7 @@ public class YHImageViewer: NSObject {
     }
 
     func moveToFirstFrame(completion: () -> Void) {
-        UIView.animateWithDuration(0.2, delay: 0, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(0.2, delay: 0, options: [], animations: { () -> Void in
             self.imageView.frame = self.startFrame
             }) { (_) -> Void in
                 completion()
